@@ -78,7 +78,7 @@ function updateUI() {
 
         const remainingTimeText = calculateRemainingTime(task.dueDate);
         const remainingTime = document.createElement('span');
-        remainingTime.textContent = ` - Time left: ${remainingTimeText}`;
+        remainingTime.textContent = `Time left: ${remainingTimeText}`;
         listItem.appendChild(remainingTime);
 
         const checkbox = document.createElement('input');
@@ -88,7 +88,7 @@ function updateUI() {
 
         const taskText = document.createElement('span');
         const formattedDueDate = formatDate(task.dueDate);
-        taskText.textContent = `${task.text} - ${task.description} (Due: ${formattedDueDate})`;
+        taskText.textContent = `${task.text} - ${task.description} (For the: ${formattedDueDate})`;
 
         // Définir le sélecteur de statut
         const statusSelector = document.createElement('select');

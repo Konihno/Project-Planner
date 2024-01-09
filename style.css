@@ -1,4 +1,4 @@
-/* Base styles */
+/* Styles de base */
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f5f5f5;
@@ -19,7 +19,7 @@ body {
     max-width: 400px;
 }
 
-/* Form elements */
+/* Éléments de formulaire */
 input[type="text"],
 input[type="date"],
 select {
@@ -31,7 +31,7 @@ select {
     box-sizing: border-box;
 }
 
-/* Button styles */
+/* Boutons */
 button {
     width: 100%;
     padding: 10px;
@@ -48,56 +48,67 @@ button:hover {
     background-color: #45a049;
 }
 
-/* Task list styles */
+/* Liste des tâches */
 ul {
     list-style-type: none;
     padding: 0;
 }
 
+/* Éléments de liste */
 li {
     background-color: #f9f9f9;
     border: 1px solid #e1e1e1;
     border-radius: 4px;
-    padding: 10px;
+    padding: 15px;
     margin-bottom: 10px;
-    list-style-type: none;
     display: flex;
-    flex-direction: column;
-    gap: 5px;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Wrap items for smaller screens */
+    gap: 10px; /* Add gap for visual separation */
 }
 
-li span {
-    padding: 5px 0;
-}
-
+/* Titre de la tâche */
 .task-title {
+    font-size: 1.25em; /* 20px if base font size is 16px */
     font-weight: bold;
+    color: #333; /* Darker color for title */
+    flex: 1 100%; /* Make title take full width on wrap */
 }
 
+/* Description de la tâche */
 .task-description {
-    color: #666;
+    font-size: 1em; /* Keep description at a standard size */
+    color: #888; /* Lighter color for description */
+    flex: 1 100%; /* Make description take full width on wrap */
 }
 
-/* Dropdown menu styles */
-select {
+/* Selectors and buttons */
+select,
+.delete-button {
     cursor: pointer;
-    background-position: right 10px top 50%;
-    background-size: 12px 12px;
-    padding-right: 30px; /* Make space for the background image */
 }
 
-.completed {
-    text-decoration: line-through;
-    color: #888;
+/* Surbrillance des éléments interactifs */
+button:hover, select:hover {
+    border-color: #999;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
+/* Styles pour tâche complétée */
+.completed .task-title {
+    text-decoration: line-through; /* Strikethrough style for completed tasks */
+    color: #888; /* Grayed out color */
+}
+
+/* Bouton de suppression */
 .delete-button {
     background-color: #d9534f;
     color: white;
     padding: 5px 10px;
     border: none;
     border-radius: 4px;
-    cursor: pointer;
+    margin-left: 10px;
 }
 
 .delete-button:hover {
@@ -115,72 +126,3 @@ select {
         font-size: 14px;
     }
 }
-
-input[type="checkbox"] {
-    pointer-events: auto;
-}
-input[type="checkbox"] {
-    min-width: 20px; /* or whatever size makes them easily clickable */
-    min-height: 20px; /* or whatever size makes them easily clickable */
-    margin: 10px; /* to ensure they are not too close to other elements */
-}
-li {
-    z-index: 1; /* lower than any potentially overlapping elements */
-}
-
-
-
-/* Amélioration de l'espacement et de l'alignement */
-li {
-    display: flex;
-    align-items: center; /* Aligner les éléments verticalement */
-    justify-content: space-between; /* Espacer les éléments horizontalement */
-    padding: 15px; /* Plus d'espace à l'intérieur des éléments de liste */
-}
-
-/* Style pour le texte de la tâche */
-.task-title {
-    font-size: 18px; /* Rendre le titre plus grand */
-    margin-right: 10px; /* Espacer le titre des autres éléments */
-}
-
-.task-description {
-    margin-bottom: 5px; /* Espacer la description du titre */
-}
-
-/* Styles pour les contrôles de tâche */
-.task-controls {
-    display: flex;
-    align-items: center;
-}
-
-/* Style pour les sélecteurs de statut */
-select {
-    margin-right: 10px; /* Espacer le sélecteur du bouton de suppression */
-}
-
-/* Style pour les boutons de suppression */
-.delete-button {
-    margin-left: 10px; /* Espacer le bouton de suppression des autres éléments */
-}
-
-/* Ajout de bordures ou d'ombres pour les éléments survolés */
-button:hover, select:hover {
-    border: 1px solid #999; /* Ajouter une bordure en survol */
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Ajouter une ombre en survol */
-}
-
-/* Responsive adjustments */
-@media (max-width: 600px) {
-    li {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .task-controls {
-        width: 100%;
-        justify-content: space-between;
-        margin-top: 10px; /* Ajouter de l'espace entre les éléments lorsqu'ils sont en colonne */
-    }
-}
-
