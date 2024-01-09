@@ -2,29 +2,36 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./style.css">
-  <title>To-Do List</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>To-Do List</title>
 </head>
 
 <body>
-  <div id="app">
-    <h2>To-Do List</h2>
-    <input type="text" id="taskInput" placeholder="Add a new task">
-    <input type="date" id="dueDateInput" placeholder="Due date">
-    <select id="statusFilter">
-      <option value="all">All</option>
-      <option value="todo">To Do</option>
-      <option value="doing">Doing</option>
-      <option value="done">Done</option>
-    </select>
-    <button id="submitTask">Add Task</button>
-    <ul id="taskList"></ul>
-    <button id="deleteCompleted">Delete Completed Tasks</button>
-  </div>
+    <div id="app">
+        <h2>To-Do List</h2>
+        <input type="text" id="taskInput" placeholder="Add a new task">
+        <input type="text" id="taskDescriptionInput" placeholder="Add a task description"> 
+        <input type="date" id="dueDateInput" placeholder="Due date">
+        <select id="statusFilter">
+            <option value="all">All</option>
+            <option value="todo">Todo</option>
+            <option value="doing">Doing</option>
+            <option value="done">Done</option>
+        </select>
 
-  <script src="./script.js"></script>
+        <select id="sortFilter">
+            <option value="time">By Remaining Time</option>
+            <option value="title">By Title</option>
+        </select>
+
+        <button id="submitTask">Add Task</button>
+        <ul id="taskList"></ul>
+        <button id="deleteCompleted">Delete Completed Tasks</button>
+    </div>
+
+    <script src="./script.js"></script>
 
 </body>
 

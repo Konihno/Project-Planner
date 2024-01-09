@@ -1,62 +1,89 @@
+/* Base styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
     margin: 0;
-    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f5f5f5;
+    padding: 20px;
 }
 
 #app {
     background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    width: 300px;
+    width: 100%;
+    max-width: 400px;
 }
 
-h2 {
-    text-align: center;
-    color: #333;
-}
-
+/* Form elements */
 input[type="text"],
 input[type="date"],
 select {
     width: 100%;
-    margin-bottom: 10px;
-    padding: 8px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
     box-sizing: border-box;
 }
 
+/* Button styles */
 button {
     width: 100%;
     padding: 10px;
     background-color: #4caf50;
-    color: #fff;
+    color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
+    margin-bottom: 15px;
 }
 
 button:hover {
     background-color: #45a049;
 }
 
+/* Task list styles */
 ul {
-    list-style: none;
+    list-style-type: none;
     padding: 0;
 }
 
 li {
+    background-color: #f9f9f9;
+    border: 1px solid #e1e1e1;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+    list-style-type: none;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px;
-    border-bottom: 1px solid #ddd;
+    flex-direction: column;
+    gap: 5px;
+}
+
+li span {
+    padding: 5px 0;
+}
+
+.task-title {
+    font-weight: bold;
+}
+
+.task-description {
+    color: #666;
+}
+
+/* Dropdown menu styles */
+select {
+    cursor: pointer;
+    background-position: right 10px top 50%;
+    background-size: 12px 12px;
+    padding-right: 30px; /* Make space for the background image */
 }
 
 .completed {
@@ -64,18 +91,96 @@ li {
     color: #888;
 }
 
-
-
-button.deleteButton {
-    background-color: #f44336;
-    color: #fff;
+.delete-button {
+    background-color: #d9534f;
+    color: white;
+    padding: 5px 10px;
     border: none;
-    padding: 6px 10px;
-    cursor: pointer;
     border-radius: 4px;
+    cursor: pointer;
 }
 
-button.deleteButton:hover {
-    background-color: #d32f2f;
+.delete-button:hover {
+    background-color: #c9302c;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    #app {
+        width: 90%;
+        margin: 20px;
+    }
+
+    button, input[type="text"], input[type="date"], select {
+        font-size: 14px;
+    }
+}
+
+input[type="checkbox"] {
+    pointer-events: auto;
+}
+input[type="checkbox"] {
+    min-width: 20px; /* or whatever size makes them easily clickable */
+    min-height: 20px; /* or whatever size makes them easily clickable */
+    margin: 10px; /* to ensure they are not too close to other elements */
+}
+li {
+    z-index: 1; /* lower than any potentially overlapping elements */
+}
+
+
+
+/* Amélioration de l'espacement et de l'alignement */
+li {
+    display: flex;
+    align-items: center; /* Aligner les éléments verticalement */
+    justify-content: space-between; /* Espacer les éléments horizontalement */
+    padding: 15px; /* Plus d'espace à l'intérieur des éléments de liste */
+}
+
+/* Style pour le texte de la tâche */
+.task-title {
+    font-size: 18px; /* Rendre le titre plus grand */
+    margin-right: 10px; /* Espacer le titre des autres éléments */
+}
+
+.task-description {
+    margin-bottom: 5px; /* Espacer la description du titre */
+}
+
+/* Styles pour les contrôles de tâche */
+.task-controls {
+    display: flex;
+    align-items: center;
+}
+
+/* Style pour les sélecteurs de statut */
+select {
+    margin-right: 10px; /* Espacer le sélecteur du bouton de suppression */
+}
+
+/* Style pour les boutons de suppression */
+.delete-button {
+    margin-left: 10px; /* Espacer le bouton de suppression des autres éléments */
+}
+
+/* Ajout de bordures ou d'ombres pour les éléments survolés */
+button:hover, select:hover {
+    border: 1px solid #999; /* Ajouter une bordure en survol */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Ajouter une ombre en survol */
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .task-controls {
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 10px; /* Ajouter de l'espace entre les éléments lorsqu'ils sont en colonne */
+    }
 }
 
